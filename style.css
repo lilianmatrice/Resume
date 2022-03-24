@@ -7,20 +7,23 @@ h1 {
 }
 
 h5 {
-    text-align:center;
+    text-align:left;
 }
 
+/*
 .css-1kyxreq
 {
     display:block;
 }
-/* Permet de centrer l'image en wide mode */
+
 
 img {
     margin-left:auto;
     margin-right:auto;
     display:block;
 }
+*/
+/* Permet de centrer l'image en wide mode */
 
 #MainMenu {
     visibility: hidden;

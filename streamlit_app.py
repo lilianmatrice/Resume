@@ -1,20 +1,54 @@
 import streamlit as st
 from PIL import Image
 
-st.set_page_config(layout="wide")
+#st.set_page_config(layout="wide", page_title="Interactive table app")
+# 📰 
+st.set_page_config(page_icon="🈺", page_title = "Lilian Martin CV")
 
 with open("style.css") as f:
     st.markdown('<style>{}</style>'.format(f.read()), unsafe_allow_html=True)
 
 #####################
+# Custom function for printing text
+def head(a, b):
+  col1, col2 = st.columns([3,1])
+  with col1:
+    st.markdown(a)
+  with col2:
+    st.image(b, width = 200)
+
+def txt(a, b):
+  col1, col2 = st.columns([4,1])
+  with col1:
+    st.markdown(a)
+  with col2:
+    st.markdown(b)
+
+def txt2(a, b):
+  col1, col2 = st.columns([1,4])
+  with col1:
+    st.markdown(f'`{a}`')
+  with col2:
+    st.markdown(b)
+
+def txt3(a, b):
+  col1, col2 = st.columns([1,2])
+  with col1:
+    st.markdown(a)
+  with col2:
+    st.markdown(b)
+
+
+#####################
 # Header 
-st.write('''
+image = Image.open('dp.png')
+
+head('''
 # Lilian Martin, Data analyst
 #### Resume 
-''')
+''', image)
 
-image = Image.open('dp.png')
-st.image(image, width = 250)
+#st.markdown('[this is a text link](upload:image)')
 
 st.markdown('## Summary', unsafe_allow_html=True)
 st.info('''
@@ -29,7 +63,7 @@ st.info('''
 st.markdown('<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">', unsafe_allow_html=True)
 
 st.markdown("""
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #16A2CB;">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #F09536;">
   <a class="navbar-brand" href="https://www.linkedin.com/in/lilianmartin4/" target="_blank">Lilian Martin</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -57,82 +91,79 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 #####################
-# Custom function for printing text
-def txt(a, b):
-  col1, col2 = st.columns([4,1])
-  with col1:
-    st.markdown(a)
-  with col2:
-    st.markdown(b)
-
-def txt2(a, b):
-  col1, col2 = st.columns([1,4])
-  with col1:
-    st.markdown(f'`{a}`')
-  with col2:
-    st.markdown(b)
-
-def txt3(a, b):
-  col1, col2 = st.columns([1,2])
-  with col1:
-    st.markdown(a)
-  with col2:
-    st.markdown(b)
-  
-def txt4(a, b, c):
-  col1, col2, col3 = st.columns([1.5,2,2])
-  with col1:
-    st.markdown(f'`{a}`')
-  with col2:
-    st.markdown(b)
-  with col3:
-    st.markdown(c)
-
-#####################
 st.markdown('''
-## Work Experience
+# Work Experience
 ''')
 
-txt('**Data training Manager**, Matrice, Paris',
+txt('#### **Data training Manager**, Matrice, Paris',
 '2021-today')
 st.markdown('''
-- Training people to Data Analysis.
-
+- Training people to Data Analysis
+- Creation of training content
+- Professional integration coaching
+- Reference : s.olivera.silvera@gmail.com
 ''')
 
-txt('**Data analyst**, Rise Up, Paris',
+txt('##### **Data analyst**, Rise Up, Paris',
 '2019-21')
-txt('**Statistical analyst**, Secours Catholique Caritas France, Paris',
-'2009-12')
-txt('**Census officer**, INSEE/Mairie du 13e, Paris',
+st.markdown('''
+- Creation of a datalab for our customers
+- Business Intelligence: dashboards realization (`AWS Quicksight` & `MySQL`)
+- Communication with customers
+- Reference : guillaume@riseup.ai
+
+''')
+txt('##### **Statistical analyst**, Secours Catholique Caritas France, Paris',
+'2018-19')
+txt('##### **Census officer**, INSEE/Mairie du 13e, Paris',
 '2018')
-txt('**Investigator**, ORIVE, Paris',
+txt('##### **Investigator**, ORIVE, Paris',
 '2017-18')
-txt('**Activity leader**,Enfants du métro, Paris',
+txt('##### **Activity leader**,Enfants du métro, Paris',
 '2015-18')
+st.markdown('''
+- Caring for children in summer camp
+''')
 txt('**Odd jobs**, Adecco, Paris',
 '2012-15')
 
+
+#####################
 st.markdown('''
-- Provided mentorship and supervision to junior faculty, researchers, Ph.D./M.Sc./B.Sc. students. Mentored `3` Post-doctoral fellows, supervised `13` Ph.D. students, supervised `8` M.Sc. students, supervised `13` B.Sc. students and hosted `6` visiting students from U.S., Sweden and India.
-- Wrote and applied for research grants. Served as Principal Investigator for research grants that have been awarded `12.5 million THB` and `1.117 million SEK` in research funding from Thai and Swedish grant agencies.
-- Conducted research by applying machine learning to computational drug discovery and ensuring that research output exceeds `20+` articles per year.
-- Taught `10+` undergraduate/graduate classes on Bioinformatics, Data Mining, Scientific Research and Presentation, Research Methodology, Graduate Seminar, Programming for Health Data Science, etc.
-- Peer reviewed `100+` research articles for leading scientific journals.
+### Voluntary work
+''')
+
+txt('#### **Bar referent**, La base, Paris',
+'2019-today')
+
+st.markdown('''
+- Bar tending
+- Events management, communication
+- Marauding
+- Mentoring
+''')
+
+txt('**Volunteer**, Secours Catholique Caritas France, Paris',
+'2018-19')
+
+st.markdown('''
+- Take care of the children of the people welcomed during the events organized (Christmas, football tournament at claire-fontaine...)
 ''')
 
 #####################
 st.markdown('''
-## Education
+# Education
 ''')
 
 txt('#### **Data Analyst** OpenClassrooms X ENSAE-ENSAI', '2019-21'
 )
 st.markdown('''
-- GPA: `3.89`
-- Research thesis entitled `Computer-aided molecular design for biological and chemical applications : Quantum chemical and machine learning approach`.
-- Received Royal Golden Jubilee Ph.D. Scholarship of `2.152 million THB` covering tuition and stipend.
-- Thesis awarded `1st` Prize by the National Research Council of Thailand.
+- Data analysis, machine learning
+- Learned `Python3` & `MySQL`
+- Data scrapping
+- 10 professional projects. 
+- A final statiscal report on `UFC`
+- Reference: romainwarlop@gmail.com
 ''')
 
 txt("**Paris 1 Panthéon-Sorbonne –Professional Master's degree–Expert Demographer**, Faculty of Medical Technology, Mahidol University, Thailand",
@@ -163,3 +194,5 @@ st.markdown('''
 ## Social Media
 ''')
 txt2('LinkedIn', 'https://www.linkedin.com/in/lilianmartin4/')
+
+st.markdown("[LinkedIn](https://www.linkedin.com/in/lilianmartin4/)")
